@@ -18,7 +18,7 @@ export class AdBannerComponent implements OnInit, OnDestroy {
 
   currentAdIndex = -1;
 
-  @ViewChild(AdDirective, { static: true }) adHost!: AdDirective;
+  @ViewChild(AdDirective, { static: true }) test!: AdDirective;
   interval: number | undefined;
 
   ngOnInit() {
@@ -31,11 +31,11 @@ export class AdBannerComponent implements OnInit, OnDestroy {
   }
 
   loadComponent() {
-    console.log(this.adHost);
+    console.log(this.test);
     this.currentAdIndex = (this.currentAdIndex + 1) % this.ads.length;
     const adItem = this.ads[this.currentAdIndex];
 
-    const viewContainerRef = this.adHost.viewContainerRef;
+    const viewContainerRef = this.test.viewContainerRef;
     viewContainerRef.clear();
 
     const componentRef = viewContainerRef.createComponent<AdComponent>(
